@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jverdu-r <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:19:06 by jverdu-r          #+#    #+#             */
-/*   Updated: 2023/12/12 16:19:07 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/05/21 17:16:26 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/phonebook.hpp"
+#include <ctype.h>
+#include <stdlib.h>
+#include <cstdlib>
+#include <cerrno>
+#include <climits>
 
 Phonebook::Phonebook(void){return;}
 
@@ -43,10 +48,61 @@ std::string add_info(std::string msg)
     }
     return (cnt);
 }
+int stringToInteger(const std::string& s) {
+    char* end = 0;
+    errno = 0;
+    long val = std::strtol(s.c_str(), &end, 10);
+
+    if (end == s.c_str() || *end != '\0' || errno == ERANGE || val > INT_MAX || val < INT_MIN) {
+        throw std::invalid_argument("Invalid integer: " + s);
+    }
+    return static_cast<int>(val);
+}
+
+bool isNumber(std::string& s) {
+    if (s.empty()) {
+        return false;
+    }
+    std::size_t start = 0;
+    if (s[0] == '+' || s[0] == '-') {
+        start = 1;
+    }
+    for (std::size_t i = start; i < s.size(); ++i) {
+        if (!std::isdigit(s[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int add_phone()
+{
+    int         num;
+    std::string msg;
+    bool        ck;
+
+    num = 0;
+    std::cout << "Phone number:";
+    std::getline(std::cin, msg);
+    //std::cout << std::endl;
+    ck = isNumber(msg);
+    while (ck == false)
+    {
+	    std::cout << "only num values" << std::endl;
+	    std::cout << "Phone number:";
+        std::getline(std::cin, msg);
+        //std::cout << std::endl;
+        ck = isNumber(msg);
+    }
+    if (ck == true)
+        return (stringToInteger(msg));
+    return (0);
+}
+
 Phonebook    Phonebook::add_cnt(Phonebook pb, int i)
 {
     Contact n_cnt(add_info("First name: "), add_info("Last name: "),
-                  add_info("Nickname: "), add_info("Phone number: "),
+                  add_info("Nickname: "), add_phone(),
                   add_info("Darkest secret: "));
     pb.contacts[i] = n_cnt;
     return(pb);

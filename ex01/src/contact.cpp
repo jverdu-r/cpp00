@@ -6,13 +6,13 @@
 /*   By: jverdu-r <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:18:11 by jverdu-r          #+#    #+#             */
-/*   Updated: 2023/12/11 18:18:13 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/05/16 17:00:24 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/contact.hpp"
 
-Contact::Contact(std::string f_name, std::string l_name, std::string nickname, std::string phone, std::string d_secret)
+Contact::Contact(std::string f_name, std::string l_name, std::string nickname, int phone, std::string d_secret)
 {
     this->f_name = f_name;
     this->l_name = l_name;
