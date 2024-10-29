@@ -6,7 +6,7 @@
 /*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:19:06 by jverdu-r          #+#    #+#             */
-/*   Updated: 2024/05/21 17:16:26 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/10/29 18:05:12 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,19 @@ std::string add_info(std::string msg)
 int stringToInteger(const std::string& s) {
     char* end = 0;
     errno = 0;
-    long val = std::strtol(s.c_str(), &end, 10);
-
-    if (end == s.c_str() || *end != '\0' || errno == ERANGE || val > INT_MAX || val < INT_MIN) {
-        throw std::invalid_argument("Invalid integer: " + s);
+    long val = 0;
+    std::string str;
+    if (s.length() > 10)
+    {
+        std::cout << "entering num reduction" << std::endl;
+        str.replace(0,9, s);
+        val = std::strtol(str.c_str(), &end, 10);
+        std::cout << static_cast<int>(val) << std::endl;
+        val = static_cast<int>(val);
+        return val;
     }
+    else
+        val = std::strtol(s.c_str(), &end, 10);
     return static_cast<int>(val);
 }
 

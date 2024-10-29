@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jverdu-r <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:27:17 by jverdu-r          #+#    #+#             */
-/*   Updated: 2023/12/18 16:27:20 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/10/29 17:32:33 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,21 @@ Account::~Account(void)
     Account::_displayTimestamp();
     std::cout << "index:" << _accountIndex << ";";
     std::cout << "amount:" << _amount << ";";
-    std::cout << "closed" << std::endl;
+    std::cout << "closed:" << std::endl;
     return;
 }
 
 Account::Account(int initial_deposit)
 {
+    _nbDeposits = 0;
+	_nbWithdrawals = 0;
     _accountIndex = Account::_nbAccounts++;
     _amount = initial_deposit;
     _totalAmount += initial_deposit;
     Account::_displayTimestamp();
     std::cout << "index:" << _accountIndex << ";";
-    std::cout << "amount" << _amount << ";";
-    std::cout << "created" << std::endl;
+    std::cout << "amount:" << _amount << ";";
+    std::cout << "created:" << std::endl;
 }
 
 void Account::displayAccountsInfos(void)
