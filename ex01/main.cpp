@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jverdu-r <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 18:24:36 by jverdu-r          #+#    #+#             */
-/*   Updated: 2023/12/13 18:24:40 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/10/30 18:52:23 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int main(void)
             {
                 std::cout << "Maximum contacts reached" << std::endl;
                 std::cout << "If you continue the oldest contact will be deleted" << std::endl;
+                std::cout << "Continue? y/n" << std::endl;
                 std::getline(std::cin, cmd);
                 cmd.erase(0, cmd.find_first_not_of("\t\v\r\f"));
                 while (isspace(cmd[cmd.length() - 1]))
