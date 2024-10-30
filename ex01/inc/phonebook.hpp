@@ -6,7 +6,7 @@
 /*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:03:49 by jverdu-r          #+#    #+#             */
-/*   Updated: 2024/10/30 10:11:56 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/10/30 18:26:01 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class Phonebook
     public:
         Phonebook(void);
         ~Phonebook(void);
-        Phonebook &operator=(Phonebook const &phonebook);
         int         check_pb(Phonebook pb);
         Phonebook   del_one(Phonebook pb);
         Phonebook   add_cnt(Phonebook pb, int i);
