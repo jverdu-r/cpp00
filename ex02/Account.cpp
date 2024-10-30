@@ -6,7 +6,7 @@
 /*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:27:17 by jverdu-r          #+#    #+#             */
-/*   Updated: 2024/10/29 17:32:33 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/10/30 10:27:57 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,19 @@ int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
 Account::Account(void){return;}
+
+Account& Account::operator=(Account const& origin)
+{
+    this->_nbAccounts= origin._nbAccounts;
+	this->_totalAmount= origin._totalAmount;
+	this->_totalNbDeposits= origin._totalNbDeposits;
+	this->_totalNbWithdrawals= origin._totalNbWithdrawals;
+    this->_accountIndex = origin._accountIndex;
+    this->_amount = origin._amount;
+	this->_nbDeposits = origin._nbDeposits;
+	this->_nbWithdrawals = origin._nbWithdrawals;
+    return (*this);
+}
 
 int Account::getNbAccounts(void){return (Account::_nbAccounts);}
 

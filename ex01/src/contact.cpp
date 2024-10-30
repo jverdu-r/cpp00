@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jverdu-r <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:18:11 by jverdu-r          #+#    #+#             */
-/*   Updated: 2024/05/16 17:00:24 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/10/30 10:30:04 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,16 @@ Contact::Contact(std::string f_name, std::string l_name, std::string nickname, i
 Contact::Contact(void){return;}
 
 Contact::~Contact(void){return;}
+
+Contact& Contact::operator=(Contact const& origin)
+{
+    this->f_name = origin.f_name;
+    this->l_name = origin.l_name;
+    this->nickname = origin.nickname;
+    this->phone = origin.phone;
+    this->d_secret = origin.d_secret;
+    return (*this);
+}
 
 int Contact::null_contact(Contact contact)
 {

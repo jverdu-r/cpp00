@@ -6,7 +6,7 @@
 /*   By: jverdu-r <jverdu-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:19:06 by jverdu-r          #+#    #+#             */
-/*   Updated: 2024/10/29 18:05:12 by jverdu-r         ###   ########.fr       */
+/*   Updated: 2024/10/30 10:13:12 by jverdu-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 Phonebook::Phonebook(void){return;}
 
 Phonebook::~Phonebook(void){return;}
+
+Phonebook& Phonebook::operator=(Phonebook const& origin)
+{
+    return (*this);
+}
 
 int isnum(std::string s, int i)
 {
